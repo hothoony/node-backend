@@ -1,5 +1,5 @@
 # node backend
-## backend library
+## backend dependencies
 - `nodemon` server auto restart
 - `express` web server
 - `ejs` view template
@@ -8,7 +8,22 @@
 - `body-parser` request body parsing
 - `mongoose` ODM(Object Document Mapping) library
 
-## npm install
+## dependency 설치
+```bash
+# dependencies
+npm install express
+npm install ejs
+npm install dotenv
+npm install winston
+npm install winston-daily-rotate-file
+npm install morgan
+npm install mongoose
+
+## devDependencies
+npm install --save-dev nodemon -g
+```
+
+## dependency 사용
 - ### express
     ```javascript
     // install
@@ -56,48 +71,29 @@
     app.use(bodyParser.urlencoded({extended: true}));
     ```
 
+- ### mongoose
+    ```javascript
+    const mongoose = require('mongoose');
+
+    const dbURI = 'mongodb+srv://';
+    mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then(result => {
+            console.log('connect to db');
+            app.listen(3000);
+        })
+        .catch(err => console.error(err));
+    ```
+
+- ### ejs, view template
+    ```javascript
+    app.set('view engine', 'ejs');
+    app.set('views', `${__dirname}/views`);
+    ```
+
 ## middleware
-```javascript
-app.use()
-```
+- `app.use()`
 ```javascript
 app.use(morgan('common'));
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
-```
-
-## npm install
-### dependencies
-```bash
-npm install express
-npm install ejs
-npm install dotenv
-npm install winston
-npm install winston-daily-rotate-file
-npm install morgan
-npm install mongoose
-```
-
-### devDependencies
-```
-npm install --save-dev nodemon -g
-```
-
-## mongoose
-```javascript
-const mongoose = require('mongoose');
-
-const dbURI = 'mongodb+srv://';
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(result => {
-        console.log('connect to db');
-        app.listen(3000);
-    })
-    .catch(err => console.error(err));
-```
-
-## view template
-```javascript
-app.set('view engine', 'ejs');
-app.set('views', `${__dirname}/views`);
 ```
