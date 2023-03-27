@@ -6,6 +6,8 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 
+const teamRoute = require('./routes/teamRoute');
+
 const app = express();
 
 const ads = [
@@ -19,6 +21,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 app.use(morgan('combined'));
+
+app.use('/api/v1/teams', teamRoute);
+// app.use('/users', userRoute);
 
 // routes
 app.get('/', (req, res) => {
