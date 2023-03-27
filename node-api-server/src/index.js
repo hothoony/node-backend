@@ -63,6 +63,7 @@ app.patch('/members/:id', (req, res) => {
     res.status(200).json({
         message: 'patch members ok',
         parseParam: {
+            id: req.query.id,
             name: req.body.name,
             age: req.body.age,
         },
