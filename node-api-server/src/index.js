@@ -54,6 +54,20 @@ app.patch('/members/:id', (req, res) => {
     });
 });
 
+app.post('/members', (req, res) => {
+    console.log('');
+    console.log('## post members');
+
+    // application/json
+    console.log('  req.body.name =', req.body.name);
+    console.log('  req.body.age =', req.body.age);
+    console.log('  req.body.gender =', req.body.gender);
+
+    res.status(200).json({
+        message: 'post members ok'
+    });
+});
+
 const PORT = 3001;
 app.listen(PORT, () => {
     console.log('listening on port %i', PORT);
