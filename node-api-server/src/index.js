@@ -30,6 +30,10 @@ app.get('/members', (req, res) => {
     console.log('');
     console.log('## get members');
 
+    // header
+    const authorization = req.header('Authorization');
+    console.log('  authorization =', authorization);
+
     // query string
     console.log('  query page =', req.query.page);
     console.log('  query size =', req.query.size);
