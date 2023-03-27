@@ -55,6 +55,7 @@ app.patch('/members/:id', (req, res) => {
     console.log('  req.params.id =', req.params.id);
 
     // form data
+    // Content-Type: application/x-www-form-urlencoded
     console.log('  req.body.name =', req.body.name);
     console.log('  req.body.age =', req.body.age);
 
@@ -71,7 +72,7 @@ app.post('/members', (req, res) => {
     console.log('');
     console.log('## post members');
 
-    // application/json
+    // Content-Type: application/json
     console.log('  req.body.name =', req.body.name);
     console.log('  req.body.age =', req.body.age);
     console.log('  req.body.gender =', req.body.gender);
