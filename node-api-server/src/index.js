@@ -34,7 +34,11 @@ app.get('/members', (req, res) => {
     console.log('  query size =', req.query.size);
 
     res.status(200).json({
-        message: 'get members ok'
+        message: 'get members ok',
+        parseParam: {
+            page: req.query.page,
+            size: req.query.size,
+        },
     });
 });
 
@@ -50,7 +54,11 @@ app.patch('/members/:id', (req, res) => {
     console.log('  req.body.age =', req.body.age);
 
     res.status(200).json({
-        message: 'patch members ok'
+        message: 'patch members ok',
+        parseParam: {
+            name: req.body.name,
+            age: req.body.age,
+        },
     });
 });
 
@@ -64,7 +72,12 @@ app.post('/members', (req, res) => {
     console.log('  req.body.gender =', req.body.gender);
 
     res.status(200).json({
-        message: 'post members ok'
+        message: 'post members ok',
+        parseParam: {
+            name: req.body.name,
+            age: req.body.age,
+            gender: req.body.gender,
+        },
     });
 });
 
