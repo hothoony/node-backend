@@ -90,5 +90,5 @@ app.post('/members', (req, res) => {
 const SERVER_PORT = 3001;
 
 app.listen(SERVER_PORT, () => {
-    console.log('listening on port %i', SERVER_PORT);
+    console.log('node server is running on port %i', SERVER_PORT);
 });
