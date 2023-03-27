@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
     res.send(ads);
 });
 
+// controller
 app.get('/members', (req, res) => {
     console.log('');
     console.log('## get members');
@@ -81,7 +82,8 @@ app.post('/members', (req, res) => {
     });
 });
 
-const PORT = 3001;
-app.listen(PORT, () => {
-    console.log('listening on port %i', PORT);
+const SERVER_PORT = 3001;
+
+app.listen(SERVER_PORT, () => {
+    console.log('listening on port %i', SERVER_PORT);
 });
