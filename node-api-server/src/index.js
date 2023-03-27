@@ -41,6 +41,7 @@ app.get('/members', (req, res) => {
     res.status(200).json({
         message: 'get members ok',
         parseParam: {
+            header: req.header('Authorization'),
             page: req.query.page,
             size: req.query.size,
         },
