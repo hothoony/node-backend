@@ -23,7 +23,6 @@ const authInterceptor = (req, res, next) => {
         return;
     }
 
-    console.log('HERE 11');
     next();
 
 };
