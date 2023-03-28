@@ -1,12 +1,14 @@
 
-const findAll = (req, res) => {
-    
+const findAllTeams = (req, res) => {
+    console.log('');
+    console.log('## findAllTeams');
+
     res.send({
+        message: 'findAllTeams OK',
         status: 200,
-        message: 'teams findAll OK 222',
     });
 }
 
 module.exports = {
-    findAll,
+    findAll: findAllTeams,
 };

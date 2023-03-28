@@ -1,7 +1,7 @@
 
-const findAll = (req, res) => {
+const findAllMembers = (req, res) => {
     console.log('');
-    console.log('## get members');
+    console.log('## findAllMembers');
 
     // header
     const authorization = req.header('Authorization');
@@ -12,7 +12,7 @@ const findAll = (req, res) => {
     console.log('  query size =', req.query.size);
 
     res.status(200).json({
-        message: 'get members ok',
+        message: 'findAllMembers ok',
         parseParam: {
             header: req.header('Authorization'),
             page: req.query.page,
@@ -23,7 +23,7 @@ const findAll = (req, res) => {
 
 const saveMember = (req, res) => {
     console.log('');
-    console.log('## post members');
+    console.log('## saveMember');
 
     // Content-Type: application/json
     console.log('  req.body.name =', req.body.name);
@@ -31,7 +31,7 @@ const saveMember = (req, res) => {
     console.log('  req.body.gender =', req.body.gender);
 
     res.status(200).json({
-        message: 'post members ok',
+        message: 'saveMember ok',
         parseParam: {
             name: req.body.name,
             age: req.body.age,
@@ -42,7 +42,7 @@ const saveMember = (req, res) => {
 
 const updateMember = (req, res) => {
     console.log('');
-    console.log('## patch members');
+    console.log('## updateMember');
 
     // path variable
     console.log('  req.params.id =', req.params.id);
@@ -53,7 +53,7 @@ const updateMember = (req, res) => {
     console.log('  req.body.age =', req.body.age);
 
     res.status(200).json({
-        message: 'patch members ok',
+        message: 'updateMember ok',
         parseParam: {
             id: req.params.id,
             name: req.body.name,
@@ -62,8 +62,24 @@ const updateMember = (req, res) => {
     });
 };
 
+const deleteMember = (req, res) => {
+    console.log('');
+    console.log('## deleteMember');
+
+    // path variable
+    console.log('req.params.id = ', req.params.id);
+
+    res.status(200).json({
+        message: 'deleteMember ok',
+        parseParam: {
+            id: req.params.id,
+        },
+    });
+};
+
 module.exports = {
-    findAll,
+    findAll: findAllMembers,
     updateMember,
     saveMember,
+    deleteMember,
 };
