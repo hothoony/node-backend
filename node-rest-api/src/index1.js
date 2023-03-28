@@ -23,6 +23,7 @@ app.use(cors());
 app.use(morgan('combined'));
 
 app.use('/api/v1/teams', teamRoute);
+// app.use(teamRoute);
 // app.use('/users', userRoute);
 
 // routes

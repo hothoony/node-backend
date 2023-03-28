@@ -1,5 +1,5 @@
 ### 프로젝트 생성
-- 프로젝트 폴더를 만든다 `mkdir node-api-server`
+- 프로젝트 폴더를 만든다 `mkdir node-node-rest-api`
 - `npm init -y` 으로 프로젝트를 생성한다
 - 프로젝트를 생성하면 `package.json` 파일이 생성된다
 
@@ -52,4 +52,14 @@ listening on port 3001
 ::1 - - [27/Mar/2023:02:34:24 +0000] "GET / HTTP/1.1" 200 29 "-" "PostmanRuntime/7.31.3"
 ::1 - - [27/Mar/2023:02:34:24 +0000] "GET / HTTP/1.1" 200 29 "-" "PostmanRuntime/7.31.3"
 ::1 - - [27/Mar/2023:02:34:25 +0000] "GET / HTTP/1.1" 200 29 "-" "PostmanRuntime/7.31.3"
+```
+
+### nodemon 으로 실행
+- nodemon 을 전역으로 설치한다설치
+```shell
+$ sudo npm install -g nodemon
+```
+- nodemon 으로 app 을 실행한다
+```shell
+$ nodemon src/index.js
 ```

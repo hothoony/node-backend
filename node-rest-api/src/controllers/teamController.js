@@ -1,8 +1,9 @@
+
 const findAll = (req, res) => {
     
     res.send({
         status: 200,
-        message: 'OK',
+        message: 'teams findAll OK 222',
     });
 }
 
