@@ -9,6 +9,8 @@ const morgan = require('morgan');
 const teamRoute = require('./routes/teamRoute');
 const memberRoute = require('./routes/memberRoute');
 const { isEmpty } = require('./utils/util');
+const authInterceptor = require('./interceptors/authInterceptor');
+const logInterceptor = require('./interceptors/logInterceptor');
 
 const app = express();
 const router = express.Router();
@@ -22,37 +24,8 @@ app.use(cors());
 app.use(morgan('combined'));
 
 // interceptor
-app.use((req, res, next) => {
-    console.log('');
-    console.log('## interceptor');
-
-    console.log('req.url =', req.url);
-
-    // header
-    let authorization = req.header('Authorization');
-    console.log('  authorization =', authorization);
-    authorization = null;
-
-    if (isEmpty(authorization)) {
-        res.status(401).json({
-            message: 'unauthorized user',
-        });
-    }
-
-    next();
-}, (req, res, next) => {
-    console.log('## interceptor 2');
-    next();
-});
-
-// // interceptor 2
-// router.all('/', (req, res, next) => {
-//     console.log('router.all #1');
-//     next();
-// }, (req, res, next) => {
-//     console.log('router.all #2');
-//     next();
-// });
+app.use(logInterceptor);
+app.use(authInterceptor);
 
 // route
 app.use('/api/v1', memberRoute);
