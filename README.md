@@ -1,5 +1,6 @@
-# node backend
-## backend dependencies
+# node backend 프로젝트
+
+## backend dependencies 리스트
 - `nodemon` server auto restart
 - `express` web server
 - `ejs` view template
@@ -7,19 +8,25 @@
 - `morgan` logging
 - `body-parser` request body parsing
 - `mongoose` ODM(Object Document Mapping) library
+- `dotenv` dev, prd profile 설정
+- `cross-env` OS 상관없는 변수 설정
 
 ## dependency 설치
+
+- ### dependencies
 ```bash
-# dependencies
 npm install express
 npm install ejs
 npm install dotenv
+npm install cross-env
 npm install winston
 npm install winston-daily-rotate-file
 npm install morgan
 npm install mongoose
+```
 
-## devDependencies
+- ### devDependencies
+```bash
 npm install --save-dev nodemon -g
 ```
 
