@@ -25,7 +25,7 @@ app.use(morgan('combined'));
 
 // interceptor
 app.use(logInterceptor);
-app.use(authInterceptor);
+// app.use(authInterceptor);
 
 // route
 app.use('/api/v1', memberRoute);
