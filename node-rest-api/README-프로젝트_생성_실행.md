@@ -11,9 +11,9 @@ npm init -y
 node install express # 웹서버
 node install body-parser
 node install cors
-node install helmet
+node install helmet # 보안
 node install morgan # 로깅
-# node install winston
+# node install winston# 로깅
 
 # tdd
 npm install mocha --save-dev
@@ -26,7 +26,7 @@ npm install supertest --save-dev
 ```javascript
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+const cors = require('cors'); // cors 제한없음
 const helmet = require('helmet');
 const morgan = require('morgan');
 

@@ -4,21 +4,20 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 
-const teamRoute = require('./routes/teamRoute');
-const memberRoute = require('./routes/memberRoute');
-const { isEmpty } = require('./utils/util');
 const authInterceptor = require('./interceptors/authInterceptor');
 const logInterceptor = require('./interceptors/logInterceptor');
+const { isEmpty } = require('./utils/util');
+
+const teamRoute = require('./routes/teamRoute');
+const memberRoute = require('./routes/memberRoute');
 
 const app = express();
-const router = express.Router();
 
 /* middleware */
 app.use(helmet());
-// app.use(express.json());
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cors());
 app.use(morgan('combined'));
 
 /* interceptor */
