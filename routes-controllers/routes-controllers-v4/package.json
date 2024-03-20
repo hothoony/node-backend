@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "//build": "webpack --mode=development",
-    "build": "webpack --mode=development"
+    "build:dev": "webpack --mode=development",
+    "build:prd": "webpack --mode=production",
+    "build1": "NODE_ENV=development webpack",
+    "build2": "NODE_ENV=production webpack"
   },
   "keywords": [],
   "author": "",
