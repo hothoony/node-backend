@@ -1,23 +1,29 @@
 ### 프로젝트 생성
-- 프로젝트 폴더를 만든다 `mkdir node-node-rest-api`
-- `npm init -y` 으로 프로젝트를 생성한다
-- 프로젝트를 생성하면 `package.json` 파일이 생성된다
+- 아래 명령으로 프로젝트를 생성한다. 프로젝트가 생성되면 `package.json` 파일이 생성된다
+```bash
+mkdir node-rest-api
+cd node-rest-api
+npm init -y
+```
 
 ### 모듈을 설치한다
 ```shell
-node install express
+node install express # 웹서버
 node install body-parser
 node install cors
 node install helmet
-node install morgan
+node install morgan # 로깅
+# node install winston
+
+# tdd
+npm install mocha --save-dev
+npm install should --save-dev
+npm install supertest --save-dev
 ```
 
 ### 소스코드 작성
-- 소스코드 폴더륾 만든다 `mkdir src`
-- `index.js` 파일을 만든다
+- `src/index.js` 파일을 만든다
 ```javascript
-console.log('hello node');
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
