@@ -2,7 +2,10 @@ const memberService = require('../service/memberService');
 
 const getMemberList = function(req, res) {
     const userList = memberService.getMemberList();
-    res.send('getMemberList');
+    // if (true) {
+    //     return res.status(400).json({message: 'bad request'});
+    // }
+    res.status(200).json('getMemberList');
 };
 
 const getMemberDetail = function(req, res) {
