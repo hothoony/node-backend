@@ -1,10 +1,10 @@
 
 const getMemberList = function(req, res) {
-    res.send('/members');
+    res.send('getMemberList');
 };
 
 const getMemberDetail = function(req, res) {
-    res.send('/members/:memberId');
+    res.send('getMemberDetail');
 };
 
 module.exports = {
