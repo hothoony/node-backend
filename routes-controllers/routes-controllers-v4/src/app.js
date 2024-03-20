@@ -3,8 +3,8 @@ const memberRouter = require('./router/memberRouter')
 const teamRouter = require('./router/teamRouter')
 
 const app = express();
-app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 app.use((req, res, next) => {
     console.log('');

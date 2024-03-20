@@ -14,11 +14,25 @@ const getMemberDetail = function(req, res) {
 };
 
 const addMember = function(req, res) {
+
+    console.log('');
+    console.log('- req.url', req.url);
+    console.log('- req.query', req.query);
+    console.log('- req.params', req.params);
+    console.log('- req.body', req.body);
+
     memberService.addMember();
     res.send('addMember');
 };
 
 const modifyMember = function(req, res) {
+
+    console.log('');
+    console.log('- req.url', req.url);
+    console.log('- req.query', req.query);
+    console.log('- req.params', req.params);
+    console.log('- req.body', req.body);
+
     memberService.modifyMember();
     res.send('modifyMember');
 };
