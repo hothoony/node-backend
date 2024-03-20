@@ -11,8 +11,8 @@ const addMember = function(req, res) {
     res.send('addMember');
 };
 
-const updateMember = function(req, res) {
-    res.send('updateMember');
+const modifyMember = function(req, res) {
+    res.send('modifyMember');
 };
 
 const deleteMember = function(req, res) {
@@ -23,6 +23,6 @@ module.exports = {
     getMemberList,
     getMemberDetail,
     addMember,
-    updateMember,
+    modifyMember,
     deleteMember,
 }

@@ -11,8 +11,8 @@ const addTeam = function(req, res) {
     res.send('addTeam');
 };
 
-const updateTeam = function(req, res) {
-    res.send('updateTeam');
+const modifyTeam = function(req, res) {
+    res.send('modifyTeam');
 };
 
 const deleteTeam = function(req, res) {
@@ -23,6 +23,6 @@ module.exports = {
     getTeamList,
     getTeamDetail,
     addTeam,
-    updateTeam,
+    modifyTeam,
     deleteTeam,
 }
