@@ -1,5 +1,3 @@
-console.log('hello node');
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -15,7 +13,7 @@ const logInterceptor = require('./interceptors/logInterceptor');
 const app = express();
 const router = express.Router();
 
-// middleware
+/* middleware */
 app.use(helmet());
 // app.use(express.json());
 app.use(bodyParser.json());
@@ -23,11 +21,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 app.use(morgan('combined'));
 
-// interceptor
+/* interceptor */
 app.use(logInterceptor);
 // app.use(authInterceptor);
 
-// route
+/* route */
 app.use('/api/v1', memberRoute);
 app.use('/api/v1', teamRoute);
 

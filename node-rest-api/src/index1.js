@@ -1,5 +1,3 @@
-console.log('hello node');
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -14,7 +12,7 @@ const ads = [
     {title: 'Hello world 123'}
 ];
 
-// middleware
+/* middleware */
 app.use(helmet());
 // app.use(express.json());
 app.use(bodyParser.json());
@@ -26,12 +24,12 @@ app.use('/api/v1/teams', teamRoute);
 // app.use(teamRoute);
 // app.use('/users', userRoute);
 
-// routes
+/* routes */
 app.get('/', (req, res) => {
     res.send(ads);
 });
 
-// controller
+/* controller */
 app.get('/members', (req, res) => {
     console.log('');
     console.log('## get members');
