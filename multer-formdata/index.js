@@ -1,5 +1,5 @@
 const express = require('express');
-const upload = require('./src/upload');
+const upload = require('./src/multer-upload');
 
 const app = express();
 
