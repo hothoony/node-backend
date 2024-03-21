@@ -24,12 +24,12 @@ const yyyy = function() {
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        // const uploadPath = path.resolve(process.env.HOME, 'ztemp/uploads'); // /Users/ingpdev/ztemp/uploads
-        const uploadPath = '/Volumes/mydata/ztemp/uploads';
+        // const uploadBasePath = path.resolve(process.env.HOME, 'ztemp/uploads'); // /Users/ingpdev/ztemp/uploads
+        const uploadBasePath = '/Volumes/mydata/ztemp/uploads';
         const targetDir = `${yyyy()}/${yyyymm()}/${yyyymmdd()}`;
-        const dirPath = uploadPath + '/' + targetDir;
-        fs.mkdirSync(path.resolve(uploadPath, targetDir), {recursive: true});
-        cb(null, dirPath);
+        const uploadPath = uploadBasePath + '/' + targetDir;
+        fs.mkdirSync(path.resolve(uploadBasePath, targetDir), {recursive: true});
+        cb(null, uploadPath);
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + path.extname(file.originalname));
