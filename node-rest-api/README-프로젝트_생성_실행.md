@@ -9,11 +9,27 @@ npm init -y
 ### 모듈을 설치한다
 ```shell
 node install express # 웹서버
-node install body-parser
+# node install body-parser # express 에 포함됨
 node install cors
 node install helmet # 보안
 node install morgan # 로깅
-# node install winston# 로깅
+node install winston # 로깅
+npm install winston-daily-rotate-file # 로깅
+npm install moment-timezone # timezone 처리
+npm install multer # multipart/form-data 처리
+npm install axios
+
+# orm
+# npm install sequelize
+
+# profile 처리
+npm install dotenv
+npm install cross-env
+
+# webpack
+node install webpack -D
+node install webpack-cli -D
+node install webpack-node-externals -D
 
 # tdd
 npm install mocha --save-dev
