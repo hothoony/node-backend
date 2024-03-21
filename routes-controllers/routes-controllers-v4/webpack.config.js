@@ -35,5 +35,5 @@ module.exports = {
     plugins: [
         new LoaderOptionsPlugin({ debug: true }), 
     ],
-    // externals: [ nodeExternals() ], // node_modules 를 번들링에 포함하지 않는다
+    externals: [ nodeExternals() ], // node_modules 를 번들링에 포함하지 않는다
 }
