@@ -4,6 +4,9 @@ const ffmpeg = require('fluent-ffmpeg');
 // ffmpeg()
 //     .input('./files/original.mp4')
 //     .saveToFile('./files/out.mov')
+//     // .on('start', (commandLine) => {
+//     //     console.log('start', commandLine);
+//     // })
 //     .on('progress', (progress) => {
 //         if (progress.percent) {
 //             console.log(`processing ${progress.percent}`);
