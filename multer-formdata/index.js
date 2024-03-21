@@ -1,15 +1,15 @@
 const express = require('express');
-const multer = require('multer');
+const upload = require('./src/upload');
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-const upload = multer({ dest: 'uploads/' });
+// const upload = multer({ dest: 'uploads/' });
 
 // profileFile 이름의 파일 1개 + 텍스트 param 여러 개
-app.post('/upload1', upload.single('profileFile'), function(req, res, next) {
+app.post('/upload-single', upload.single('profileFile'), function(req, res, next) {
     console.log('upload1');
     console.log('req.file', req.file);
     console.log('req.files', req.files);
@@ -20,7 +20,7 @@ app.post('/upload1', upload.single('profileFile'), function(req, res, next) {
 });
 
 // profileFile 이름의 파일 2개 + 텍스트 param 여러 개
-app.post('/upload2', upload.array('profileFile', 2), function(req, res, next) {
+app.post('/upload-array', upload.array('profileFile', 2), function(req, res, next) {
     console.log('upload2');
     console.log('req.file', req.file);
     console.log('req.files', req.files);
@@ -33,7 +33,7 @@ app.post('/upload2', upload.array('profileFile', 2), function(req, res, next) {
 // profileFile 이름의 파일 2개
 // logoFile 이름의 파일 1개
 // 텍스트 param 여러 개
-app.post('/upload3', upload.fields([
+app.post('/upload-fields', upload.fields([
     {name: 'profileFile', maxCount: 2},
     {name: 'logoFile', maxCount: 1},
 ]), function(req, res, next) {
