@@ -17,7 +17,10 @@ node install winston # 로깅
 npm install winston-daily-rotate-file # 로깅
 npm install moment-timezone # timezone 처리
 npm install multer # multipart/form-data 처리
-npm install axios
+npm install axios # api 콜
+npm install bcrypt # 암호화
+npm install jsonwebtoken # JWT
+npm install nodemailer # smtp
 
 # orm
 # npm install sequelize
