@@ -1,1 +1,1 @@
-const ffmpegUtil = require('./src/ffmpegUtil');
+const ffmpegTest = require('./src/ffmpegTest');
