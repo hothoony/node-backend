@@ -3,15 +3,15 @@
 
 /*
     process.env.NODE_ENV 변수에 따라 파일을 다르게 로딩한다
-    - .env-development
-    - .env-production
+    - .env.development
+    - .env.production
 */
-// require('dotenv').config({path: `${__dirname}/.env-${process.env.NODE_ENV}`});
-require('dotenv').config({path: `./.env-${process.env.NODE_ENV}`});
+// require('dotenv').config({path: `${__dirname}/.env.${process.env.NODE_ENV}`});
+require('dotenv').config({path: `./.env.${process.env.NODE_ENV}`});
 
 // console.log('process.env', process.env);
 console.log('index.js, process.env.NODE_ENV', process.env.NODE_ENV);
-console.log('index.js, .env file', `./.env-${process.env.NODE_ENV}`);
+console.log('index.js, .env file', `./.env.${process.env.NODE_ENV}`);
 console.log('index.js, process.env.DB_HOST', process.env.DB_HOST);
 console.log('index.js, process.env.DB_PORT', process.env.DB_PORT);
 console.log('index.js, process.env.DB_USERNAME', process.env.DB_USERNAME);
@@ -35,7 +35,7 @@ const sequelize = new Sequelize(
     config.username,
     config.password,
     {
-        dialect: 'mariadb',
+        dialect: config.dialect,
     }
 );
 
