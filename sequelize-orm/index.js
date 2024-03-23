@@ -10,6 +10,7 @@ require('dotenv').config({path: `${__dirname}/.env.${process.env.NODE_ENV}`});
 // require('dotenv').config({path: `./.env.${process.env.NODE_ENV}`});
 
 // console.log('process.env', process.env);
+console.log('index.js, process.env.APP_NAME', process.env.APP_NAME);
 console.log('index.js, process.env.NODE_ENV', process.env.NODE_ENV);
 console.log('index.js, .env file', `./.env.${process.env.NODE_ENV}`);
 console.log('index.js, process.env.DB_HOST', process.env.DB_HOST);
