@@ -5,6 +5,7 @@ console.log('');
 console.log('config.js, NODE_ENV', process.env.NODE_ENV);
 console.log('config.js, .env', `./.env-${process.env.NODE_ENV}`);
 
+/* 개발 DB */
 const development = {
   username: env.DB_USERNAME,
   password: env.DB_PASSWORD,
@@ -13,6 +14,7 @@ const development = {
   dialect: "mariadb"
 };
 
+/* 운영 DB */
 const production = {
   username: env.DB_USERNAME,
   password: env.DB_PASSWORD,
