@@ -9,8 +9,8 @@ const {
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-    name: 'express-webpack-build-app',
-    mode: NODE_ENV,
+    name: 'sequelize-build-app',
+    mode: NODE_ENV, // development, production
     target: 'node',
     resolve: {
         extensions: ['.ts', '.js'],

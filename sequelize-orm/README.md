@@ -34,8 +34,8 @@ $ sequelize init
 ```
 
 - ## DB 설정 파일
-  - `config.json` 이 sequelize 가 기본적으로 제공하는 DB 설정 파일이다
-  - `config.json` 은 모듈로 로드해서 사용할 수 없기 때문에 `config.js` 로 변경해서 dotenv 와 조합해서 사용한다
+  - `config.json` 파일이 sequelize 가 기본적으로 사용하는 DB 설정 파일이다
+  - `config.json` 파일은 모듈로 로드할 수 없기 때문에 `config.js` 로 변경해서 `dotenv` 와 조합해서 사용한다
 
 - ## 모델 생성하기
 
@@ -86,34 +86,28 @@ module.exports = (sequelize, DataTypes) => {
 
 - `.env-development`
 ```bash
-DB_HOST=dev-host
-DB_PORT=dev-port
-DB_USERNAME=dev-user
-DB_PASSWORD=dev-pass
+# 개발 DB
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USERNAME=myuser
+DB_PASSWORD=testDB1234
+DB_DATABASE=mydb
 ```
 
 - `.env-production`
 ```bash
+# 운영 DB
 DB_HOST=prd-host
 DB_PORT=prd-port
 DB_USERNAME=prd-user
 DB_PASSWORD=prd-pass
+DB_DATABASE=prd-db
 ```
 
 ## 환경 설정에 맞는 파일을 로딩하도록 수정한다
 ```javascript
-/*
-    process.env.NODE_ENV 변수에 따라 파일을 다르게 로딩한다
-    - .env-development
-    - .env-production
-*/
 // require('dotenv').config({path: `${__dirname}/.env-${process.env.NODE_ENV}`});
 require('dotenv').config({path: `./.env-${process.env.NODE_ENV}`});
-
-console.log('DB_HOST', process.env.DB_HOST);
-console.log('DB_PORT', process.env.DB_PORT);
-console.log('DB_USERNAME', process.env.DB_USERNAME);
-console.log('DB_PASSWORD', process.env.DB_PASSWORD);
 ```
 
 ## 실행시에 `NODE_ENV` 에 환경 정보를 입력한다
