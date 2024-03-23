@@ -8,6 +8,7 @@ npm install dotenv
 npm install -D webpack
 npm install -D webpack-cli
 npm install -D webpack-node-externals
+npm install -D dotenv-webpack # webpack 으로 빌드할 때 .env 파일을 포함시킬 수 있다
 ```
 - sequelize-cli 를 global 로 설치하고 명령어를 확인한다
 ```bash
@@ -84,7 +85,7 @@ module.exports = (sequelize, DataTypes) => {
 
 ## .env 파일을 환경별로 각각 만든다
 
-- `.env-development`
+- `.env.development`
 ```bash
 # 개발 DB
 DB_HOST=127.0.0.1
@@ -94,7 +95,7 @@ DB_PASSWORD=testDB1234
 DB_DATABASE=mydb
 ```
 
-- `.env-production`
+- `.env.production`
 ```bash
 # 운영 DB
 DB_HOST=prd-host
@@ -106,8 +107,8 @@ DB_DATABASE=prd-db
 
 ## 환경 설정에 맞는 파일을 로딩하도록 수정한다
 ```javascript
-// require('dotenv').config({path: `${__dirname}/.env-${process.env.NODE_ENV}`});
-require('dotenv').config({path: `./.env-${process.env.NODE_ENV}`});
+// require('dotenv').config({path: `${__dirname}/.env.${process.env.NODE_ENV}`});
+require('dotenv').config({path: `./.env.${process.env.NODE_ENV}`});
 ```
 
 ## 실행시에 `NODE_ENV` 에 환경 정보를 입력한다

@@ -1,9 +1,9 @@
-require('dotenv').config({path: `./.env-${process.env.NODE_ENV}`});
+require('dotenv').config({path: `./.env.${process.env.NODE_ENV}`});
 const env = process.env;
 
 console.log('');
 console.log('config.js, process.env.NODE_ENV', process.env.NODE_ENV);
-console.log('config.js, .env file', `./.env-${process.env.NODE_ENV}`);
+console.log('config.js, .env file', `./.env.${process.env.NODE_ENV}`);
 
 /* 개발 DB */
 const development = {

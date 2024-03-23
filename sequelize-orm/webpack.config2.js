@@ -2,7 +2,6 @@ const path = require('path');
 // const { webpack } = require('webpack');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const nodeExternals = require('webpack-node-externals');
-const Dotenv = require('dotenv-webpack');
 
 const {
     NODE_ENV = 'production',
@@ -41,10 +40,6 @@ module.exports = {
               context: __dirname
             }
         }),
-        new Dotenv({
-            path: `./.env.${NODE_ENV}`,
-        }),
     ],
-    externalsPresets: { node: true },
     externals: [ nodeExternals() ]
 }
