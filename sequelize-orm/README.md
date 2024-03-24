@@ -1,4 +1,11 @@
-## 패키지를 설치한다
+# 프로젝트 생성하기
+```shell
+npm init -y
+```
+
+<br>
+
+# 패키지를 설치하기
 ```bash
 npm install sequelize
 npm install mariadb # mariaDB 사용시 설치한다
@@ -17,6 +24,54 @@ $ npm install sequelize-cli --global
 $ sequelize -v
 Sequelize CLI [Node: 16.20.2, CLI: 6.6.2, ORM: 6.37.1]
 ```
+
+<br>
+
+# dotenv 사용하기
+
+## .env 파일을 환경별로 각각 만든다
+
+- `.env.development`
+  ```bash
+  # 개발 DB
+  DB_HOST=127.0.0.1
+  DB_PORT=3306
+  DB_USERNAME=myuser
+  DB_PASSWORD=testDB1234
+  DB_DATABASE=mydb
+  ```
+
+- `.env.production`
+  ```bash
+  # 운영 DB
+  DB_HOST=prd-host
+  DB_PORT=prd-port
+  DB_USERNAME=prd-user
+  DB_PASSWORD=prd-pass
+  DB_DATABASE=prd-db
+  ```
+
+## 환경 설정에 맞는 파일을 로딩하도록 수정한다
+```javascript
+// require('dotenv').config({path: `${__dirname}/.env.${process.env.NODE_ENV}`});
+require('dotenv').config({path: `./.env.${process.env.NODE_ENV}`});
+```
+
+## 실행시에 `NODE_ENV` 에 환경 정보를 입력한다
+```bash
+# 개발환경 실행
+$ NODE_ENV=development node index.js
+
+# 운영환경 실행
+$ NODE_ENV=production node index.js
+```
+
+<br>
+
+# webpack 사용하기
+
+
+<br>
 
 # sequelize 사용하기
 - sequelize 를 초기화한다
@@ -79,45 +134,6 @@ module.exports = (sequelize, DataTypes) => {
   });
   return User;
 };
-```
-
-# dotenv 사용하기
-
-## .env 파일을 환경별로 각각 만든다
-
-- `.env.development`
-```bash
-# 개발 DB
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_USERNAME=myuser
-DB_PASSWORD=testDB1234
-DB_DATABASE=mydb
-```
-
-- `.env.production`
-```bash
-# 운영 DB
-DB_HOST=prd-host
-DB_PORT=prd-port
-DB_USERNAME=prd-user
-DB_PASSWORD=prd-pass
-DB_DATABASE=prd-db
-```
-
-## 환경 설정에 맞는 파일을 로딩하도록 수정한다
-```javascript
-// require('dotenv').config({path: `${__dirname}/.env.${process.env.NODE_ENV}`});
-require('dotenv').config({path: `./.env.${process.env.NODE_ENV}`});
-```
-
-## 실행시에 `NODE_ENV` 에 환경 정보를 입력한다
-```bash
-# 개발환경 실행
-$ NODE_ENV=development node index.js
-
-# 운영환경 실행
-$ NODE_ENV=production node index.js
 ```
 
 ## database 생성하기
