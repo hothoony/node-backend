@@ -70,6 +70,61 @@ $ NODE_ENV=production node index.js
 
 # webpack 사용하기
 
+- webpack.config.js
+```javascript
+const path = require('path');
+// const { webpack } = require('webpack');
+const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
+const nodeExternals = require('webpack-node-externals');
+const Dotenv = require('dotenv-webpack');
+
+// process.env 에서 NODE_ENV 를 가져온다
+const {
+    NODE_ENV = 'production',
+} = process.env;
+
+module.exports = {
+    name: 'sequelize-build-app',
+    mode: NODE_ENV, // development, production
+    target: 'node',
+    resolve: {
+        extensions: ['.ts', '.js'],
+    },
+    entry: {
+        app: ['./index.js'],
+    },
+    output: {
+        path: path.resolve(__dirname, 'build'),
+        filename: `index-${NODE_ENV}.js`
+    },
+    module: {
+        rules: [
+            {
+                test: /\.ts$/,
+                use: [
+                    'ts-loader',
+                ]
+            }
+        ]
+    },
+    plugins: [
+        // new webpack.LoaderOptionsPlugin({
+        new LoaderOptionsPlugin({
+            minimize: true,
+            debug: false,
+            options: {
+              context: __dirname
+            }
+        }),
+        new Dotenv({
+            path: `./.env.${NODE_ENV}`,
+        }),
+    ],
+    externalsPresets: { node: true },
+    externals: [ nodeExternals() ]
+}
+```
+
 
 <br>
 
@@ -90,8 +145,9 @@ $ sequelize init
 ```
 
 - ## DB 설정 파일
-  - `config.json` 파일이 sequelize 가 기본적으로 사용하는 DB 설정 파일이다
-  - `config.json` 파일은 모듈로 로드할 수 없기 때문에 `config.js` 로 변경해서 `dotenv` 와 조합해서 사용한다
+  - `config.json` 파일 대신 `config.js` 파일을 사용한다
+  - sequelize 가 기본적으로 사용하는 DB 설정 파일은 `config.json` 이다
+  - `config.json` 은 모듈로 로드할 수 없기 때문에 `config.js` 로 변경하고 `dotenv` 와 조합해서 사용한다
 
 - ## 모델 생성하기
 
