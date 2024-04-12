@@ -70,7 +70,18 @@ $ NODE_ENV=production node index.js
 
 # webpack 사용하기
 
-- webpack.config.js
+- ## 아래 2개 설정을 넣어준다
+  - 빌드할 때 node_modules 폴더를 제외시킨다
+  ```
+  const nodeExternals = require('webpack-node-externals');
+  ```
+
+  - 빌드할 때 `.env` 파일을 포함시킨다
+  ```
+  const Dotenv = require('dotenv-webpack');
+  ```
+
+- ## webpack.config.js
 ```javascript
 const path = require('path');
 // const { webpack } = require('webpack');
