@@ -68,6 +68,14 @@ $ NODE_ENV=production node index.js
 
 <br>
 
+# `.env`
+- `.env` 파일을 webpack 으로 빌드할 때 포함하지 않으면
+  - `.env` 파일을 서버에 배포해야 한다
+- `.env` 파일을 webpack 빌드시 포함하면
+  - `.env` 파일을 서버에 배포하지 않아도 된다
+
+<br>
+
 # webpack 사용하기
 
 - ## 아래 2개 설정을 넣어준다
@@ -76,7 +84,7 @@ $ NODE_ENV=production node index.js
   const nodeExternals = require('webpack-node-externals');
   ```
 
-  - 빌드할 때 `.env` 파일을 포함시킨다
+  - 빌드할 때 `.env` 파일을 포함시킨다 (빌드에 포함할지 여부를 확인필요)
   ```
   const Dotenv = require('dotenv-webpack');
   ```
