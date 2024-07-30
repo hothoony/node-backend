@@ -66,6 +66,11 @@ ffmpeg -i aa.mp4 -b:v 2M -auto-alt-ref 0 -f mov out2.mov # O
 ffmpeg -i aa.mp4 -vf 'colorkey=0x00FF00:similarity=0.2:blend=0.3' -b:v 2M -auto-alt-ref 0 -f mov out2.mov # X
 ```
 
+## webm 파일을 mp4 로 변환
+```bash
+ffmpeg -i sample.webm -c:v libx264 -c:a aac sample.mp4
+```
+
 ```bash
 # encodes all video streams with libx264 and copies all audio streams.
 ffmpeg -i INPUT -map 0 -c:v libx264 -c:a copy OUTPUT
