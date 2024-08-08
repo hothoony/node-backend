@@ -22,7 +22,7 @@ const getHttpStatus = (statusCode) => {
 // ---- then 블럭
 // getHttpStatus(200); // OK
 // getHttpStatus(201); // Created
-getHttpStatus(204); // No Content
+// getHttpStatus(204); // No Content
 // ---- catch 블럭
 // getHttpStatus(301); // Moved Permanently
 // getHttpStatus(307); // Temporary Redirect
@@ -31,6 +31,15 @@ getHttpStatus(204); // No Content
 // getHttpStatus(401); // Unauthorized
 // getHttpStatus(403); // Forbidden
 // getHttpStatus(404); // Not Found
+getHttpStatus(405); // Method Not Allowed
+// getHttpStatus(408); // Request Timeout
 // getHttpStatus(409); // Conflict
 // getHttpStatus(422); // Unprocessable Entity, Unprocessable Content
+// getHttpStatus(428); // Precondition Required
+// getHttpStatus(429); // Too Many Requests
 // getHttpStatus(500); // Internal Server Error
+// getHttpStatus(501); // Not Implemented
+// getHttpStatus(502); // Bad Gateway
+// getHttpStatus(503); // Service Unavailable
+// getHttpStatus(504); // Gateway Timeout
+// getHttpStatus(507); // Insufficient Storage
