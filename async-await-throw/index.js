@@ -7,9 +7,15 @@ const asyncFunc = (num) => {
             } else if (num == 2) {
                 reject('task is failed');
             } else {
-                throw new Error('error 22');
+                // Promise 내부에서는
+                // throw new Error() 대신에
+                // reject(new Error()) 를 사용한다
+
+                // throw new Error('error 22');
+                reject(new Error('error 22')); // throw 대신 reject 사용
             }
-        }, 2000);
+        }, 1000);
+        throw new Error('error 33');
     });
 };
 
@@ -21,7 +27,7 @@ const asyncCall = async (num) => {
             return 'aa';
         })
         .catch((err) => {
-            console.log('catch', err);
+            console.log('catch1', err);
             return 'bb';
         });
         console.log('result', result);
