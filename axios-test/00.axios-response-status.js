@@ -17,15 +17,20 @@ const getHttpStatus = (statusCode) => {
     ;
 }
 
+// https://dummyjson.com/docs/http
+
 // ---- then 블럭
 // getHttpStatus(200); // OK
 // getHttpStatus(201); // Created
-// getHttpStatus(204); // No Content
+getHttpStatus(204); // No Content
 // ---- catch 블럭
+// getHttpStatus(301); // Moved Permanently
+// getHttpStatus(307); // Temporary Redirect
+// getHttpStatus(308); // Permanent Redirect
 // getHttpStatus(400); // Bad Request
 // getHttpStatus(401); // Unauthorized
 // getHttpStatus(403); // Forbidden
 // getHttpStatus(404); // Not Found
 // getHttpStatus(409); // Conflict
-getHttpStatus(422); // Unprocessable Entity, Unprocessable Content
+// getHttpStatus(422); // Unprocessable Entity, Unprocessable Content
 // getHttpStatus(500); // Internal Server Error
