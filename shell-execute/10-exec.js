@@ -1,9 +1,12 @@
 const { exec } = require('child_process');
 
 const runExec = (cmd) => {
-    exec(cmd, (error, stdout, stderr) => {
+    
+    const child = exec(cmd, (error, stdout, stderr) => {
         if (error) {
             console.log(`------------------error`);
+            console.log('error.code', error.code);
+            console.log(`------------------`);
             console.log(error);
             return;
         }
@@ -15,6 +18,14 @@ const runExec = (cmd) => {
         console.log(`------------------stdout`);
         console.log(stdout);
     });
+
+    child.on('exit', (code, signal) => {
+        console.log(`process exited with code: ${code}`);
+        if (signal) {
+            console.log(`process terminated with signal: ${signal}`);
+        }
+    });
+
 };
 
 // runExec('ls -al'); // stdout
