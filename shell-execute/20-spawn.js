@@ -23,5 +23,5 @@ const runExec = (cmd, args) => {
 
 };
 
-// runExec('ls', ['-al']); // stdout
-runExec('ls', ['--AL']); // stderr
+runExec('ls', ['-al']); // stdout
+// runExec('ls', ['--AL']); // stderr
