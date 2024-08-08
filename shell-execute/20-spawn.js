@@ -17,6 +17,7 @@ const runExec = (cmd, args) => {
     });
 
     child.on('close', (code) => {
+        console.log(`------------------close`);
         console.log(`child process exited with code ${code}`);
     });
 

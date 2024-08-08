@@ -6,7 +6,6 @@ const runExec = (cmd, args) => {
         if (error) {
             console.log(`------------------error`);
             console.log('error.code', error.code);
-            console.log(`------------------`);
             console.log(error);
             return;
         }
@@ -20,6 +19,7 @@ const runExec = (cmd, args) => {
     });
 
     child.on('exit', (code, signal) => {
+        console.log(`------------------exit`);
         console.log(`process exited with code: ${code}`);
         if (signal) {
             console.log(`process terminated with signal: ${signal}`);
