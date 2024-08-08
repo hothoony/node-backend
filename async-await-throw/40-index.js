@@ -16,7 +16,8 @@ const asyncFunc = (num) => {
     });
 };
 
-const asyncCall = async (num) => {
+// await 사용
+const asyncCall1 = async (num) => {
     try {
         const result = await asyncFunc(num);
         console.log('result', result);
@@ -25,6 +26,24 @@ const asyncCall = async (num) => {
     }
 };
 
-// asyncCall(1);
-// asyncCall(2);
-asyncCall(3);
+// await 미사용
+const asyncCall2 = (num) => {
+    try {
+        const result = asyncFunc(num)
+        .then((value) => {
+            console.log('then', value);
+            return 'aa';
+        })
+        // .catch((err) => {
+        //     console.log('catch1', err);
+        //     return 'bb';
+        // })
+        ;
+        console.log('result', result);
+    } catch (err) {
+        console.log('catch2', err);
+    }
+};
+
+// asyncCall1(3);
+asyncCall2(3);
